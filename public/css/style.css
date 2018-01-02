@@ -1,0 +1,51 @@
+.body {
+  background:#ffffff;
+  width:1440px;
+  height:80px;
+};
+
+.divProduct {
+  border: red 2px solid;
+  margin: 20px;
+  background:#ffffff;
+  box-shadow:2px 2px 4px 0 rgba(0,0,0,0.10);
+  width:276px;
+  height:276px;
+};
+
+.divImage {
+  background:#ffffff;
+  width:252px;
+  height:182px;
+};
+
+.divUserHead {
+  background:#ffffff;
+  width:1440px;
+  height:80px;
+}
+
+.datoUserName {
+  font-family:SourceSansPro-Regular;
+  font-size:24px;
+  color:#616161;
+  letter-spacing:-0.15px;
+  line-height:48px;
+  text-align:left;
+}
+
+.divUserPoints {
+  background:#ededed;
+  border-radius:100px;
+  width:103px;
+  height:48px;
+}
+
+.datoUserPoints {
+  font-family:SourceSansPro-Regular;
+  font-size:24px;
+  color:#616161;
+  letter-spacing:-0.15px;
+  line-height:48px;
+  text-align:left;
+}

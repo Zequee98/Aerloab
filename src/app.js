@@ -7,10 +7,10 @@ import store from './store';
 import Main from './components/Main.jsx';
 
 const router = (
-  <Router history={hashHistory}>
-    <Route path='/' component={Main}>
-    </Route>
-  </Router>
+    <Router history={hashHistory}>
+      <Route path='/' component={Main}>
+      </Route>
+    </Router>
 );
 
 render(router, document.getElementById('app'));
