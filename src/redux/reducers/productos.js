@@ -1,7 +1,7 @@
 function productos(state=[], action) {
   switch (action.type) {
     case "LIST_PRODUCTS":
-        return action.productos;
+        return action.products;
     default:
         return state;
   }

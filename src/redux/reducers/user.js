@@ -3,14 +3,14 @@ function user(state={}, action) {
     case 'REQ_USER':
         return action.user;
     case 'RESTAR_PUNTOS':
-        return [
+        return {
           ...state,
-          {points: state.points - action.price}
-        ]
+          points: state.points - action.price
+        }
     case 'ADD_HISTORY':
         return {
           ...state,
-          {redeemHistory: action.itemBuy}
+          redeemHistory: action.product
         }
     default:
       return state;

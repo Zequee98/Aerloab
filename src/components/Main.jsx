@@ -1,27 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {cargarProductos} from '../redux/actions/actionCreator';
+import {agregarUserState} from '../redux/actions/actionCreator';
+import {getUser} from '../redux/actions/userActionCreator';
+import {getProducts} from '../redux/actions/productActionCreator';
 
-import Header from './Header.jsx'
-import Productos from './Productos.jsx'
-import ProductosContainer from '../containers/ProductosContainer.jsx'
+import HeaderContainer from '../containers/HeaderContainer.jsx'
 
 class Main extends React.Component {
+  componentDidMount(){
+    this.props.agregarUserState();
+  }
+
   render() {
     return (
       <div>
-        <Header />
-        <Productos />
+        <HeaderContainer />
+          <div>
+            {React.cloneElement(this.props.children, this.props)}
+          </div>
       </div>
     )
   };
 };
 
-// function mapDispatchToProps(dispatch){
-//   return bindActionCreators({cargarProductos}, dispatch);
-// }
-//
-// export default connect(null, mapDispatchToProps)(Main);
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({agregarUserState}, dispatch);
+}
 
-export default Main;
+export default connect(null, mapDispatchToProps)(Main);
+
+// export default Main;
