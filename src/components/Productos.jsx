@@ -1,10 +1,9 @@
 import React from 'react';
 
-const Productos = function(props) {
-  console.log('STATE', props.datoProducto)
+const Productos = (props)=> {
+  // <button onClick = { () => props.getHistory() }> History now </button>
   return (
     <div>
-      <button onClick = { () => props.getHistory() }> History now </button>
       <div className="row">
         <div className="col-xs-1"> col 2</div>
           <div className="col-xs-10">
@@ -16,9 +15,9 @@ const Productos = function(props) {
                     <img src={product.img.url} />
                   </div>
                   <div>
-                    <p1> {product.category} </p1>
+                    <p> {product.category} </p>
                     <h4> {product.name} </h4>
-                    <p1> Vale {product.cost} </p1>
+                    <p> Vale {product.cost} </p>
                   </div>
                   {(product.cost < props.user.points) ?
                     <div>

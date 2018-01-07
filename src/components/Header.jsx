@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Header = function(props){
-  console.log('User', props.user)
+const Header = (props)=> {
   return(
     <div>
       <div className="divUserHead">
@@ -14,11 +13,10 @@ const Header = function(props){
           </div>
         </div>
       </div>
-      <div>
-        <center>
-          <h1> HEADER </h1>
-        </center>
+      <div className="divImageHeader">
+        <img className="imageHeader" src="../../public/css/header-x1.png" title="HEADER"/>
       </div>
+      <button>Next page</button>
     </div>
   )
 };

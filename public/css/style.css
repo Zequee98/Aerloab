@@ -49,3 +49,26 @@
   line-height:48px;
   text-align:left;
 }
+
+.imageHeader {
+  width:1440px;
+  height:412px;
+}
+
+.divImageHeader {
+  width:1440px;
+  height:480px;
+}
+
+.botonPrueba {
+  background:#0ad4fa;
+  border-radius:100px;
+  width:163px;
+  height:48px;
+  font-family:SourceSansPro-Regular;
+  font-size:24px;
+  color:#ffffff;
+  letter-spacing:-0.15px;
+  line-height:48px;
+  text-align:left;
+}

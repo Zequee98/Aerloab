@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {cargarProductos, adquirirProducto} from '../redux/actions/actionCreator.js';
-import {canjearProductos} from '../redux/actions/userActionCreator.js';
-import {getHistoryUser} from '../redux/actions/productActionCreator.js';
+import {getHistoryUser} from '../redux/actions/userActionCreator.js';
+import {acquireProduct, listHightPrice, listLowestPrice, mostRecent} from '../redux/actions/productActionCreator.js';
+import {cargarProductos} from '../redux/actions/actionCreator.js';
 
 import Productos from '../components/Productos.jsx';
 
@@ -12,31 +12,52 @@ class ProductosContainer extends React.Component {
     super(props);
     this.acquireProduct = this.acquireProduct.bind(this);
     this.getHistory = this.getHistory.bind(this);
-  };
-
-  componentDidMount() {
-    this.props.cargarProductos();
+    this.divPages = this.divPages.bind(this);
   };
 
   acquireProduct(product) {
-    // this.props.adquirirProducto(product);
-    this.props.canjearProductos(product);
+    this.props.acquireProduct(product);
   };
 
-  getHistory(){
+  getHistory() {
     this.props.getHistoryUser();
   }
 
+  divPages(array) {
+    let pag1 = []
+    if(array.length > 16) {
+      pag1.push(array.slice(0,16));
+      pag1.push(array.slice(16));
+  	  return pag1;
+    }
+  }
+
   render() {
-    // if(!this.props.datoProducto[2]) return (<div> Cargando </div>);
+    const pages = this.divPages(this.props.datoProducto);
+    console.log('pages', pages);
     return(
       <div>
-        <Productos
-          datoProducto = { this.props.datoProducto }
-          user = {this.props.user}
-          acquireProduct = {this.acquireProduct}
-          getHistory = {this.getHistory}
-        />
+
+        <div>
+          <button className="botonPrueba" onClick = {()=> this.props.cargarProductos()}> mostRecent </button>
+          <button className="botonPrueba" onClick = {()=> this.props.listHightPrice(this.props.datoProducto)}> highestPrice </button>
+          <button className="botonPrueba" onClick = {()=> this.props.listLowestPrice(this.props.datoProducto)}> lowestPrice </button>
+        </div>
+
+        {(pages) ?
+          <div>
+            <Productos
+              datoProducto = { pages[0] }
+              user = {this.props.user}
+              acquireProduct = {this.acquireProduct}
+              getHistory = {this.getHistory}
+            />
+          </div>
+          :
+          <div>
+            <p> loadding</p>
+          </div>
+        }
       </div>
     )
   };
@@ -47,7 +68,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({cargarProductos, adquirirProducto, canjearProductos, getHistoryUser}, dispatch);
+  return bindActionCreators({acquireProduct, getHistoryUser, listHightPrice, listLowestPrice, mostRecent, cargarProductos}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductosContainer);
