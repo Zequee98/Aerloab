@@ -3,20 +3,30 @@ import React from 'react';
 const Header = (props)=> {
   return(
     <div>
-      <div className="divUserHead">
-        <div className="datoUserName">
-          <p> {props.user.name}</p>
-        </div>
-        <div className="divUserPoints">
-          <div className="datoUserPoints">
-            <p> {props.user.points}</p>
+      <div className="containerHeader">
+        <img className="logoAerolab" src="../../public/css/aerolab-logo"/>
+          <div className="UserNameCss">
+            <p> {props.user.name}</p>
           </div>
-        </div>
+          <div className="divUserPoints">
+
+          <div className="datoUserPoints">
+            <div className="moneyContainer">
+              <p> {props.user.points}</p>
+              <div className="moneyDiv1">
+                <div className="moneyDiv2">
+                  <div className="moneyDiv3">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          </div>
       </div>
       <div className="divImageHeader">
-        <img className="imageHeader" src="../../public/css/header-x1.png" title="HEADER"/>
+        <img className="imageHeader" src="../../public/css/header-x1.png"/>
       </div>
-      <button>Next page</button>
     </div>
   )
 };

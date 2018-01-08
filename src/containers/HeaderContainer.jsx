@@ -22,7 +22,7 @@ class HeaderContainer extends React.Component {
 };
 
 function mapStateToProps(state){
-  return { datoUser: state.user, loadPage: state.loadPage };
+  return { datoUser: state.user };
 }
 
 // function mapDispatchToProps(dispatch){

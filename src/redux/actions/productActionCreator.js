@@ -14,7 +14,20 @@ function changeProducts(products) {
   };
 };
 
-export function listLowestPrice(products){
+function changeState(newState) {
+  return {
+    type: 'CHANGE_STATE',
+    newState
+  }
+}
+
+export function changePage(state) {
+  return(dispatch)=> {
+    return dispatch(changeState(!state));
+  };
+};
+
+export function listLowestPrice(products) {
   return(dispatch)=> {
     let lowestPrice = products.map(product => product).sort((a, b) => a.cost - b.cost);
     return dispatch(changeProducts(lowestPrice));

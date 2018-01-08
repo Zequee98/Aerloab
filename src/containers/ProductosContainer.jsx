@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {getHistoryUser} from '../redux/actions/userActionCreator.js';
-import {acquireProduct, listHightPrice, listLowestPrice, mostRecent} from '../redux/actions/productActionCreator.js';
+import {acquireProduct, listHightPrice, listLowestPrice, mostRecent, changePage} from '../redux/actions/productActionCreator.js';
 import {cargarProductos} from '../redux/actions/actionCreator.js';
 
 import Productos from '../components/Productos.jsx';
@@ -33,21 +33,27 @@ class ProductosContainer extends React.Component {
   }
 
   render() {
-    const pages = this.divPages(this.props.datoProducto);
+    let pages = this.divPages(this.props.datoProducto);
     console.log('pages', pages);
+    console.log('PAGECHANGE', this.props.loadPage)
     return(
       <div>
-
-        <div>
+        <div className="containerButton">
+          <p className="textListProdct">{(this.props.loadPage) ? '32' : '16'} of 32 products</p>
+            <div className='divProductSort'></div>
+          <p className="SortButton">Sort By:</p>
           <button className="botonPrueba" onClick = {()=> this.props.cargarProductos()}> mostRecent </button>
-          <button className="botonPrueba" onClick = {()=> this.props.listHightPrice(this.props.datoProducto)}> highestPrice </button>
-          <button className="botonPrueba" onClick = {()=> this.props.listLowestPrice(this.props.datoProducto)}> lowestPrice </button>
+          <button className="botonNoMarcado" onClick = {()=> this.props.listHightPrice(this.props.datoProducto)}> highestPrice </button>
+          <button className="botonNoMarcado" onClick = {()=> this.props.listLowestPrice(this.props.datoProducto)}> lowestPrice </button>
+          <button onClick={()=> this.props.changePage(this.props.loadPage)}>Next page</button>
         </div>
+
+        <div className='divProductPr'></div>
 
         {(pages) ?
           <div>
             <Productos
-              datoProducto = { pages[0] }
+              datoProducto = {(this.props.loadPage) ? pages[1] : pages[0]}
               user = {this.props.user}
               acquireProduct = {this.acquireProduct}
               getHistory = {this.getHistory}
@@ -64,11 +70,11 @@ class ProductosContainer extends React.Component {
 };
 
 function mapStateToProps(state){
-  return { datoProducto: state.productos, user: state.user };
+  return { datoProducto: state.productos, user: state.user, loadPage: state.pageChange };
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({acquireProduct, getHistoryUser, listHightPrice, listLowestPrice, mostRecent, cargarProductos}, dispatch);
+  return bindActionCreators({changePage, acquireProduct, getHistoryUser, listHightPrice, listLowestPrice, mostRecent, cargarProductos}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductosContainer);

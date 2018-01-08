@@ -11,14 +11,19 @@ const Productos = (props)=> {
             {props.datoProducto.map(product => (
               <div key={product._id} className="col-sm-3">
                 <div className='divProduct'>
-                  <div className="divImage">
+
+                  <div className="divImageProduct">
                     <img src={product.img.url} />
                   </div>
+
+                  <div className='divImageAndProduct'></div>
+
                   <div>
                     <p> {product.category} </p>
                     <h4> {product.name} </h4>
                     <p> Vale {product.cost} </p>
                   </div>
+
                   {(product.cost < props.user.points) ?
                     <div>
                       <button onClick = { () => props.acquireProduct(product._id) }> Redeem now </button>
@@ -28,6 +33,7 @@ const Productos = (props)=> {
                       <h5> Te faltan {product.cost - props.user.points} puntos</h5>
                     </div>
                   }
+
                 </div>
               </div>
               )

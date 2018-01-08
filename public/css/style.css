@@ -1,31 +1,23 @@
-.body {
-  background:#ffffff;
+body {
+  background:#f9f9f9;
   width:1440px;
-  height:80px;
+  height:2055px;
 };
 
 .divProduct {
-  border: red 2px solid;
-  margin: 20px;
   background:#ffffff;
   box-shadow:2px 2px 4px 0 rgba(0,0,0,0.10);
   width:276px;
   height:276px;
 };
 
-.divImage {
+.divImageProduct {
   background:#ffffff;
   width:252px;
   height:182px;
 };
 
-.divUserHead {
-  background:#ffffff;
-  width:1440px;
-  height:80px;
-}
-
-.datoUserName {
+.UserNameCss {
   font-family:SourceSansPro-Regular;
   font-size:24px;
   color:#616161;
@@ -39,6 +31,7 @@
   border-radius:100px;
   width:103px;
   height:48px;
+  text-align: right;
 }
 
 .datoUserPoints {
@@ -71,4 +64,96 @@
   letter-spacing:-0.15px;
   line-height:48px;
   text-align:left;
+}
+
+.botonNoMarcado {
+  background:#ededed;
+  border-radius:100px;
+  width:172px;
+  height:48px;
+  font-family:SourceSansPro-Regular;
+  font-size:24px;
+  color:#a3a3a3;
+  letter-spacing:-0.15px;
+  line-height:48px;
+  text-align:left;
+}
+
+.logoAerolab {
+  background-image:linear-gradient(-180deg, #ff8800 0%, #ff6600 100%);
+  width:39px;
+  height:36px;
+}
+
+.divImageAndProduct {
+  background:#d9d9d9;
+  width:228px;
+  height:1px;
+}
+
+
+.containerButton {
+  display: flex;
+  flex-direction: row
+}
+
+.containerHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width:1440px;
+  height:80px;
+}
+
+.moneyContainer {
+  display: flex;
+}
+
+.SortButton {
+  font-family:SourceSansPro-Regular;
+  font-size:24px;
+  color:#a3a3a3;
+  letter-spacing:-0.15px;
+  line-height:48px;
+  text-align:left;
+}
+
+.textListProdct {
+  font-family:SourceSansPro-Regular;
+  font-size:24px;
+  color:#616161;
+  letter-spacing:-0.15px;
+  line-height:48px;
+  text-align:left;
+}
+
+.divProductPr {
+  background:#d9d9d9;
+  width:1176px;
+  height:1px;
+}
+
+.divProductSort {
+  background:#d9d9d9;
+  width:1px;
+  height:49px;
+}
+
+.moneyDiv1 {
+  background-image:radial-gradient(50% -18%, #ffcf00 50%, #f7ae15 100%);
+  width:24px;
+  height:24px;
+  border-radius:100%;
+}
+
+.moneyDiv2 {
+  background:#f8b013;
+  width:19px;
+  height:19px;
+}
+
+.moneyDiv3 {
+  background:#f8b013;
+  width:15px;
+  height:15px;
 }

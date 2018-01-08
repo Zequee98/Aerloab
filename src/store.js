@@ -7,6 +7,7 @@ import rootReducer from './redux/reducers/index.js'
 const defaultState = {
   productos : [],
   user: {},
+  pageChange: false,
 };
 
 const enhancers = compose(
