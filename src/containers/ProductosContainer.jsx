@@ -2,9 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {getHistoryUser} from '../redux/actions/userActionCreator.js';
-import {acquireProduct, listHightPrice, listLowestPrice, mostRecent, changePage} from '../redux/actions/productActionCreator.js';
-import {cargarProductos} from '../redux/actions/actionCreator.js';
-
+import {acquireProduct, listHightPrice, listLowestPrice, mostRecent, changePage, getProducts} from '../redux/actions/productActionCreator.js';
 import Productos from '../components/Productos.jsx';
 
 class ProductosContainer extends React.Component {
@@ -34,18 +32,24 @@ class ProductosContainer extends React.Component {
 
   render() {
     let pages = this.divPages(this.props.datoProducto);
-    console.log('pages', pages);
-    console.log('PAGECHANGE', this.props.loadPage)
     return(
       <div>
         <div className="containerButton">
           <p className="textListProdct">{(this.props.loadPage) ? '32' : '16'} of 32 products</p>
             <div className='divProductSort'></div>
           <p className="SortButton">Sort By:</p>
-          <button className="botonPrueba" onClick = {()=> this.props.cargarProductos()}> mostRecent </button>
-          <button className="botonNoMarcado" onClick = {()=> this.props.listHightPrice(this.props.datoProducto)}> highestPrice </button>
-          <button className="botonNoMarcado" onClick = {()=> this.props.listLowestPrice(this.props.datoProducto)}> lowestPrice </button>
-          <button onClick={()=> this.props.changePage(this.props.loadPage)}>Next page</button>
+          <button className="botonPrueba" onClick = {()=> this.props.getProducts()}>
+            mostRecent
+          </button>
+          <button className="botonNoMarcado" onClick = {()=> this.props.listHightPrice(this.props.datoProducto)}>
+            highestPrice
+          </button>
+          <button className="botonNoMarcado" onClick = {()=> this.props.listLowestPrice(this.props.datoProducto)}>
+            lowestPrice
+          </button>
+          <button onClick={()=> this.props.changePage(this.props.loadPage)}>
+            {(this.props.loadPage) ? 'Previous page' : 'Next page'}
+          </button>
         </div>
 
         <div className='divProductPr'></div>
@@ -61,7 +65,7 @@ class ProductosContainer extends React.Component {
           </div>
           :
           <div>
-            <p> loadding</p>
+            <p> Cargando ... </p>
           </div>
         }
       </div>
@@ -74,7 +78,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({changePage, acquireProduct, getHistoryUser, listHightPrice, listLowestPrice, mostRecent, cargarProductos}, dispatch);
+  return bindActionCreators({changePage, acquireProduct, getHistoryUser, listHightPrice, listLowestPrice, mostRecent, getProducts}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductosContainer);

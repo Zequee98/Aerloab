@@ -1,17 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import {getUser} from '../redux/actions/userActionCreator';
-// import {getProducts} from '../redux/actions/productActionCreator';
-
-import {agregarUserState, cargarProductos} from '../redux/actions/actionCreator.js';
+import {getUser} from '../redux/actions/userActionCreator';
+import {getProducts} from '../redux/actions/productActionCreator';
 
 import HeaderContainer from '../containers/HeaderContainer.jsx'
 
 class Main extends React.Component {
   componentDidMount(){
-    this.props.agregarUserState();
-    this.props.cargarProductos();
+    this.props.getUser();
+    this.props.getProducts();
   };
 
   render() {
@@ -27,9 +25,7 @@ class Main extends React.Component {
 };
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({agregarUserState, cargarProductos}, dispatch);
+  return bindActionCreators({getUser, getProducts}, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(Main);
-
-// export default Main;

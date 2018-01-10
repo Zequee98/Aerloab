@@ -1,47 +1,47 @@
 import axios from 'axios';
 
-function addProducts(products) {
+const addProducts = (products)=> {
   return {
     type: 'LIST_PRODUCTS',
     products
   };
 };
 
-function changeProducts(products) {
+const changeProducts = (products)=> {
   return {
     type: 'CHANGE_LIST',
     products
   };
 };
 
-function changeState(newState) {
+const changeState = (newState)=> {
   return {
     type: 'CHANGE_STATE',
     newState
   }
 }
 
-export function changePage(state) {
+export const changePage = (state)=> {
   return(dispatch)=> {
     return dispatch(changeState(!state));
   };
 };
 
-export function listLowestPrice(products) {
+export const listLowestPrice = (products)=> {
   return(dispatch)=> {
-    let lowestPrice = products.map(product => product).sort((a, b) => a.cost - b.cost);
+    let lowestPrice = products.slice().sort((a, b) => a.cost - b.cost);
     return dispatch(changeProducts(lowestPrice));
   };
 };
 
-export function listHightPrice(products) {
+export const listHightPrice = (products)=> {
   return(dispatch)=> {
-    let highestPrice = products.map(product => product).sort((a, b) => b.cost - a.cost);
+    let highestPrice = products.slice().sort((a, b) => b.cost - a.cost);
     return dispatch(changeProducts(highestPrice));
   };
 };
 
-export function getProducts() {
+export const getProducts = ()=> {
   return(dispatch)=> {
     return axios({
       method: 'GET',
@@ -61,7 +61,7 @@ export function getProducts() {
   };
 };
 
-export function acquireProduct(id) {
+export const acquireProduct = (id)=> {
   return(dispatch)=> {
     return axios({
       method: 'POST',

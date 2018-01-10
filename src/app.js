@@ -11,9 +11,7 @@ const router = (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path='/' component={Main}>
-      
         <IndexRoute component={ProductosContainer}/>
-
       </Route>
     </Router>
   </Provider>

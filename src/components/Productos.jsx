@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Productos = (props)=> {
-  // <button onClick = { () => props.getHistory() }> History now </button>
   return (
     <div>
       <div className="row">

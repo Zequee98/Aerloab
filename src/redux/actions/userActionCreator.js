@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-function addUser(user) {
+const addUser = (user)=> {
   return {
     type: 'REQ_USER',
     user,
   };
 };
 
-export function getUser() {
+export const getUser = ()=> {
   return(dispatch)=> {
     return axios({
       method: 'GET',
@@ -27,7 +27,7 @@ export function getUser() {
   };
 };
 
-export function getHistoryUser() {
+export const getHistoryUser = ()=> {
   return(dispatch)=> {
     return axios({
       method: 'GET',
