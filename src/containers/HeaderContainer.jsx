@@ -5,22 +5,23 @@ import { bindActionCreators } from 'redux';
 import Header from '../components/Header.jsx';
 
 class HeaderContainer extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
   };
 
-  render() {
+  render () {
+    const { datoUser } = this.props
     return(
       <div>
         <Header
-          user = {this.props.datoUser}
+          user = { datoUser }
         />
       </div>
     )
   };
 };
 
-function mapStateToProps(state){
+function mapStateToProps (state) {
   return { datoUser: state.user };
 };
 

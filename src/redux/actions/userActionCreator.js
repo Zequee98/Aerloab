@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-const addUser = (user)=> {
+const addUser = (user) => {
   return {
     type: 'REQ_USER',
     user,
   };
 };
 
-export const getUser = ()=> {
+export const getUser = () => {
   return(dispatch)=> {
     return axios({
       method: 'GET',
@@ -21,14 +21,12 @@ export const getUser = ()=> {
             console.log('Headers:', JSON.stringify(response.headers));
             console.log('Response:', body);
           }
-    ).then(user=> {
-      dispatch(addUser(user.data))
-    });
+    ).then (user => dispatch(addUser(user.data)));
   };
 };
 
-export const getHistoryUser = ()=> {
-  return(dispatch)=> {
+export const getHistoryUser = () => {
+  return (dispatch) => {
     return axios({
       method: 'GET',
       url: 'https://aerolab-challenge.now.sh/user/history',

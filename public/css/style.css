@@ -157,3 +157,22 @@ body {
   width:15px;
   height:15px;
 }
+
+.bton {
+  background:#ffffff;
+  width:228px;
+  height:42px;
+  font-family:SourceSansPro-Regular;
+  font-size:18px;
+  color:#616161;
+  letter-spacing:-0.04px;
+  text-align:center;
+}
+
+.btnLetras {
+  font-family:SourceSansPro-Regular;
+  font-size:18px;
+  color:#616161;
+  letter-spacing:-0.04px;
+  text-align:center;
+}

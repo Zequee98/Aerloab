@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {getUser} from '../redux/actions/userActionCreator';
-import {getProducts} from '../redux/actions/productActionCreator';
+import { getUser } from '../redux/actions/userActionCreator';
+import { getProducts } from '../redux/actions/productActionCreator';
 
-import HeaderContainer from '../containers/HeaderContainer.jsx'
+import HeaderContainer from './HeaderContainer.jsx'
 
 class Main extends React.Component {
-  componentDidMount(){
+  componentDidMount () {
     this.props.getUser();
     this.props.getProducts();
   };
@@ -17,15 +17,15 @@ class Main extends React.Component {
       <div>
         <HeaderContainer />
           <div>
-            {React.cloneElement(this.props.children, this.props)}
+            { React.cloneElement(this.props.children, this.props) }
           </div>
       </div>
     )
   };
 };
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({getUser, getProducts}, dispatch);
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({ getUser, getProducts }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(Main);

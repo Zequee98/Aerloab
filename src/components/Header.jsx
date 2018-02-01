@@ -1,18 +1,18 @@
 import React from 'react';
 
 const Header = (props)=> {
+  const { user } = props
   return(
     <div>
       <div className="containerHeader">
         <img className="logoAerolab" src="../../public/css/aerolab-logo"/>
           <div className="UserNameCss">
-            <p> {props.user.name}</p>
+            <p> { user.name }</p>
           </div>
           <div className="divUserPoints">
-
           <div className="datoUserPoints">
             <div className="moneyContainer">
-              <p> {props.user.points}</p>
+              <p> { user.points }</p>
               <div className="moneyDiv1">
                 <div className="moneyDiv2">
                   <div className="moneyDiv3">
@@ -21,7 +21,6 @@ const Header = (props)=> {
               </div>
             </div>
           </div>
-
           </div>
       </div>
       <div className="divImageHeader">
